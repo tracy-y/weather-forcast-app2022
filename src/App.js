@@ -1,7 +1,9 @@
 
 import styled from 'styled-components'
 import BackgroundImage from './components/BackgroundImage/BackgroundImage'
+import Forecast from './components/Forecast'
 import LocalWeather from './components/LocalWeather/LocalWeather'
+import OtherCities from './components/OtherCities/OtherCities'
 
 const Wrapper = styled(BackgroundImage)`
   min-height: 100vh;
@@ -20,10 +22,10 @@ const Container = styled.div`
 const Layout = styled.div`
   display: flex;
   padding: 36px 0;
-`
+  `
 const VerticalBorder = styled.div`
   width: 3px;
-  background-color: rgba(0 0 0 0.1);
+  background-color: rgba(0, 0, 0, 0.1);
 `
 
 const App= () => (
@@ -31,9 +33,9 @@ const App= () => (
     <Container>
      <LocalWeather/> 
       <Layout>
-        <div>OtherCities</div>
+        <OtherCities />
         <VerticalBorder/>
-        <div>Forecast</div>
+        <Forecast />
       </Layout>
     </Container>
   </Wrapper>

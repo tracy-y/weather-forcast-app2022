@@ -2,6 +2,7 @@
 import BackgroundImage from '../BackgroundImage/BackgroundImage';
 import styled from 'styled-components';
 import Weather from './components/Weather/Weather';
+import CityName from './components/CityName';
 
 const Layout = styled.div`
   display: flex;
@@ -14,7 +15,7 @@ const LocalWeather = () => (
     <BackgroundImage src = "http://wallpaperaccess.com/full/51370.jpg">
       <Layout>
         <Weather />
-        <div>CityName</div>
+        <CityName name = "Melbourne" />
       </Layout>
         </BackgroundImage>
   )

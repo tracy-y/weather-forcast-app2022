@@ -30,18 +30,18 @@ const VerticalDivider = styled.div`
 const HumidityAndWind = styled.div`
   display: flex;
   margin-top: 3em;
-  background-color: rgba(255, 255, 225, 0.7);
+  // background-color: rgba(255, 255, 225, 0.7);
 `;
 
 const Weather = () => (
     <Wrapper> 
-    <StyledTemperature value="11.81"/> 
-    <MainWeather>Rain</MainWeather>
-    <div>
-      <WeatherItem />
-      <VerticalDivider />
-      <WeatherItem />
-    </div>
+      <StyledTemperature value="11.81"/> 
+      <MainWeather>Rain</MainWeather>
+        <HumidityAndWind>
+          <WeatherItem title="HUMIDITY"> 83% </WeatherItem>
+          <VerticalDivider />
+          <WeatherItem title="WIND">11.83 KM/S</WeatherItem>
+        </HumidityAndWind>
     </Wrapper> 
    )
 

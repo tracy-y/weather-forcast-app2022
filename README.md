@@ -11,10 +11,11 @@ Step 1: Break The UI Into A Component Hierarchy
     - WeatherItem: render weather item wind, layout of title and value
     bolder
     - CityName: render value and fancy border
+
   - OtherCities： render other cities, Title and list of city weathers
    - Title: Other Cities 
    - Section: render layout of title and city weathers
-     - CityWeather: render city wether
+     - CityWeather: render city weather
         - CityName: render value
         - Temperature: render value with icon
         - WeatherIcon: render weather image given by icon value

@@ -1,8 +1,20 @@
+import styled from 'styled-components';
 
 
-const WeatherItem = () => {
+const Wrapper = styled.div`
+ text-align: center;
+`
+
+const Title = styled.div`
+ margin-bottom: 0.75rem;
+`
+
+const WeatherItem = ({title, children}) => {
   return (
-    <div>WeatherItem</div>
+    <Wrapper>
+      <Title>{title}</Title>
+      <div> {children}</div>
+    </Wrapper>
   )
 }
 
