@@ -3,6 +3,7 @@
 import Temperature from "../../../Temperature/Temperature"
 import styled from "styled-components"
 import WeatherItem from "./Components/WeatherItem"
+import { useState } from "react";
 
 
 const Wrapper = styled.div`
@@ -29,20 +30,22 @@ const VerticalDivider = styled.div`
 
 const HumidityAndWind = styled.div`
   display: flex;
-  margin-top: 3em;
+  margin-top: 3rem;
   // background-color: rgba(255, 255, 225, 0.7);
 `;
 
-const Weather = () => (
+const Weather = ({temperature, mainWeather, humidity, wind}) => {
+ 
+  return (
     <Wrapper> 
-      <StyledTemperature value="11.81"/> 
-      <MainWeather>Rain</MainWeather>
-        <HumidityAndWind>
-          <WeatherItem title="HUMIDITY"> 83% </WeatherItem>
-          <VerticalDivider />
-          <WeatherItem title="WIND">11.83 KM/S</WeatherItem>
-        </HumidityAndWind>
-    </Wrapper> 
-   )
+    <StyledTemperature value={temperature}/> 
+    <MainWeather>{mainWeather}</MainWeather>
+      <HumidityAndWind>
+        <WeatherItem title="HUMIDITY">{humidity}</WeatherItem>
+        <VerticalDivider />
+        <WeatherItem title="WIND">{wind}</WeatherItem>
+      </HumidityAndWind>
+  </Wrapper> 
+  )}
 
 export default Weather

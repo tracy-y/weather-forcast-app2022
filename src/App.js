@@ -21,7 +21,7 @@ const Container = styled.div`
 `
 const Layout = styled.div`
   display: flex;
-  padding: 36px 0;
+  padding: 24px 0;
   `
 const VerticalBorder = styled.div`
   width: 3px;
