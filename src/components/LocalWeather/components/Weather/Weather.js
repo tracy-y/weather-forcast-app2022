@@ -21,7 +21,7 @@ const MainWeather = styled.div`
   letter-spacing: 5px;
   margin-top: 0.25rem;
  `;
-
+ 
 const VerticalDivider = styled.div`
   margin: 0 2rem;
   width: 2px;
@@ -31,19 +31,18 @@ const VerticalDivider = styled.div`
 const HumidityAndWind = styled.div`
   display: flex;
   margin-top: 3rem;
-  // background-color: rgba(255, 255, 225, 0.7);
 `;
-
-const Weather = ({temperature, mainWeather, humidity, wind}) => {
+ 
+const Weather = ({ temperature, mainWeather, humidity, wind, }) => {
  
   return (
     <Wrapper> 
     <StyledTemperature value={temperature}/> 
     <MainWeather>{mainWeather}</MainWeather>
       <HumidityAndWind>
-        <WeatherItem title="HUMIDITY">{humidity}</WeatherItem>
+        <WeatherItem title="HUMIDITY">{`${humidity} %`}</WeatherItem>
         <VerticalDivider />
-        <WeatherItem title="WIND">{wind}</WeatherItem>
+        <WeatherItem title="WIND">{`${wind} K/M`}</WeatherItem>
       </HumidityAndWind>
   </Wrapper> 
   )}
