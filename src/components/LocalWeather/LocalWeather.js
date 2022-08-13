@@ -4,15 +4,8 @@ import styled from 'styled-components';
 import Weather from './components/Weather/Weather';
 import CityName from './components/CityName';
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import getWeather from '../../apis/getWeather';
 
-const getWeather = (id) => axios.get('http://api.openweathermap.org/data/2.5/weather', {
-  params: {
-    id,
-    units: 'metric',
-    appid: '2466213f21b4b723d341e00a430a7673',
-  }
-})
 
 const Layout = styled.div`
   display: flex;
@@ -23,21 +16,26 @@ const Layout = styled.div`
 
 const LocalWeather = () => {
   const [data, setData] = useState()
-
-  console.log("data");
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-     getWeather('2158177').then(({ data }) => setData(data))   
-  }, [])
+    setLoading(true)
 
-  return (
+     getWeather('2158177').then(({ data }) => {
+      setData(data)
+      setLoading(false)
+    }) 
+  }, []) 
+  
+  if(loading) {
+    return <div>Loading...</div>
+  }
+
+  return ( 
     <BackgroundImage src = "http://wallpaperaccess.com/full/51370.jpg">
       <Layout>
         <Weather 
-           temperature={data.main.temp} 
-           mainWeather={data.weather[0].main} 
-           humidity={data.main.humidity} 
-           wind={data.wind.speed} />
+           data={data} />
         <CityName name={data.name} />
       </Layout>
         </BackgroundImage>
