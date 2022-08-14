@@ -1,11 +1,10 @@
-import axios from 'axios';
+import OpenWeatherMap from '../../libs/OpenWeatherMap/OpenWeahterMap';
 
-const getWeather = (id) => axios.get('http://api.openweathermap.org/data/2.5/weather', {
+const getWeather = (id) => OpenWeatherMap.get({
+  path: '/weather',
   params: {
-    id,
-    units: 'metric',
-    appid: '2466213f21b4b723d341e00a430a7673',
-  }
+   id,
+  } 
 })
 
 export default getWeather
