@@ -13,7 +13,7 @@ const CityName = styled.div`
 `
 
 const StyleTempreture = styled(Temperature)`
-  width: 3rem;
+  width: 4rem;
   margin-right: 1rem;
 `
 

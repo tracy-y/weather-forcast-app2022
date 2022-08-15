@@ -1,8 +1,8 @@
-import axios from 'axios'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Section from '../Section'
 import DailyWeather from './components/DailyWeather'
+import get3HourForecast from '../../apis/get3HourForecast'
 
 const Layout = styled.div`
   margin-top: 2rem;
@@ -11,19 +11,28 @@ const Layout = styled.div`
 `
 
 const Forecast = () => {
-  const [forecast, setForecast] = useState(
-    [{id:"MON", day:"MON", temperature:"24", weather: {icon: "03d", description:"Rain"}},
-    {id:"TUE", day:"TUE", temperature:"21", weather: {icon: "04d", description:"Cloud"}},
-    {id:"WEN", day:"WEN", temperature:"30", weather: {icon: "01d", description:"Clear"}},
-    {id:"THUR", day:"THUR", temperature:"29", weather: {icon: "01d", description:"Clear"}},
-    {id:"FRI",  day:"FRI", temperature:"28", weather: {icon: "11d", description:"Thounderstorm"}},]
-  )
+ const [data, setData ] = useState()
+ const [loading, setLoading] = useState(true)
+
+ useEffect(() => {
+   get3HourForecast('2158177').then((res) => {
+     setData(res.data)
+     setLoading(false)
+   })
+ },[])
+
+ if(loading){
+  return <div> Loading... </div>
+ } 
+
+  console.log(data)
 
   return (
     <Section title="Forecast">    
        <Layout>
-        {forecast.map(({ id, day, temperature, weather }) => (
-          <DailyWeather id= {id} day={day} temperature={temperature} weather={weather} /> 
+        {data.list.map((
+          { id, time, main: {temp}, weather:[weather] }) => (
+          <DailyWeather key= {id} time={cnt.dt_txt} temperature={temp} weather={weather} /> 
         ))} 
     </Layout>
     </Section>

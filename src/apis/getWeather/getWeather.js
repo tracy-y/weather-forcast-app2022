@@ -1,4 +1,4 @@
-import OpenWeatherMap from '../../libs/OpenWeatherMap/OpenWeahterMap';
+import OpenWeatherMap from '../../libs/OpenWeatherMap/OpenWeatherMap';
 
 const getWeather = (id) => OpenWeatherMap.get({
   path: '/weather',
@@ -8,3 +8,4 @@ const getWeather = (id) => OpenWeatherMap.get({
 })
 
 export default getWeather
+

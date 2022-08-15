@@ -1,9 +1,9 @@
-import OpenWeatherMap from '../../libs/OpenWeatherMap/OpenWeahterMap';
+import OpenWeatherMap from '../../../libs/OpenWeatherMap/OpenWeatherMap'
 
 const getWeathers = ( ids ) => OpenWeatherMap.get({
-    path: '/group',
+    path: '/group', 
     params: {
-     ids: ids.join(),
+     id: ids.join(),
     }
 })
 
