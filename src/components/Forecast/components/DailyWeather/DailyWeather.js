@@ -15,9 +15,9 @@ const StyledWeatherIcon = styled(WeatherIcon)`
   width: 70px;
 `
 
-const DailyWeather = ({ time, weather, temperature }) =>(
+const DailyWeather = ({ day, weather, temperature }) =>(
     <Wrapper>
-        <div>{cnt.dt_txt}</div>
+        <div>{day}</div>
         <StyledWeatherIcon value={weather.icon} description={weather.description}/>
         <div>
         <Temperature value={temperature} />
