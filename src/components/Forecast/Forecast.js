@@ -12,16 +12,18 @@ const Layout = styled.div`
 `
 const DAYS = ['SUN', 'mON', 'TUE', 'WED', 'THU', 'FRI', 'SAT']
 
-const Forecast = () => {
+const Forecast = ({
+  cityId,
+}) => {
  const [data, setData ] = useState()
  const [loading, setLoading] = useState(true)
 
  useEffect(() => {
-   get3HourForecast('2158177').then((res) => {
+   get3HourForecast(cityId).then((res) => {
      setData(res.data)
      setLoading(false)
    })
- },[])
+ },[cityId])
 
  if(loading){
   return <div> Loading... </div>

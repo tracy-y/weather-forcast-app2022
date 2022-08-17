@@ -20,7 +20,7 @@ const DailyWeather = ({ day, weather, temperature }) =>(
         <div>{day}</div>
         <StyledWeatherIcon value={weather.icon} description={weather.description}/>
         <div>
-        <Temperature value={temperature} />
+        <Temperature value={temperature.toFixed(1)} />
         </div>
     </Wrapper>
   )

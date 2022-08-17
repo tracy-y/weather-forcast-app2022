@@ -14,18 +14,20 @@ const Layout = styled.div`
   color: White;
 `
 
-const LocalWeather = () => {
+const LocalWeather = ({
+  cityId,
+}) => {
   const [data, setData] = useState()
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     setLoading(true)
 
-     getWeather('2158177').then(({ data }) => {
+     getWeather(cityId).then(({ data }) => {
       setData(data)
       setLoading(false)
     }) 
-  }, []) 
+  }, [cityId]) 
   
   if(loading) {
     return <div>Loading...</div>
@@ -34,8 +36,12 @@ const LocalWeather = () => {
   return ( 
     <BackgroundImage src = "http://wallpaperaccess.com/full/51370.jpg">
       <Layout>
-        <Weather 
-           data={data} />
+        <Weather  
+           temperature={data.main.temp}
+           mainWeather={data.weather[0].main}
+           humidity={data.main.humidity}
+           windSpeed={data.wind.speed}
+           />
         <CityName name={data.name} />
       </Layout>
         </BackgroundImage>
